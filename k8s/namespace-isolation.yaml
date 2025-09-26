@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: gpu-tenants
+---
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: default-deny
+  namespace: gpu-tenants
+spec:
+  podSelector: {}
+  policyTypes:
+  - Ingress
+  - Egress
